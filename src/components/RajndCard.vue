@@ -114,10 +114,8 @@ export default {
             this.rotationFinished = true;
           }, 800);
         } else {
-          console.log(this.rotationFinished);
           setTimeout(() => {
             this.rotationFinished = true;
-            console.log(this.rotationFinished);
           }, 800);
         }
       }
