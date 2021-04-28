@@ -12,7 +12,7 @@
       <admin-login />
     </template>
     <div v-if="signedIn && !isMobile" class="logout-btn" @click="signOut">
-      <p class="logout-btn-text">Sign out</p>
+      <p class="logout-btn-text">Logga ut</p>
     </div>
   </div>
 </template>

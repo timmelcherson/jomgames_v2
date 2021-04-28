@@ -15,7 +15,7 @@
       <div class="dashboard-nav-item" @click="navChangeHandler(2)">Ord till 'Vad gör du?'</div>
 
       <div v-if="signedIn && isMobile" class="logout-btn" @click="signOut">
-        <p class="logout-btn-text">Sign out</p>
+        <p class="logout-btn-text">Logga ut</p>
       </div>
     </section>
   </transition>
