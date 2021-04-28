@@ -68,6 +68,7 @@ export default {
       currentAnswer: "",
       showAnswer: false,
       rotated: false,
+      rotationFinished: true,
     };
   },
   computed: {
@@ -102,12 +103,22 @@ export default {
     ...mapActions(["getQuestionFromCategory"]),
     rotateCard() {
       var element = document.getElementById(this.cardId);
-      if (element) {
+      if (element && this.rotationFinished) {
         element.classList.toggle("rotate");
+        this.rotationFinished = false;
         this.rotated = !this.rotated;
         if (!this.rotated) {
-          this.getQuestion();
-          this.showAnswer = false;
+          setTimeout(() => {
+            this.getQuestion();
+            this.showAnswer = false;
+            this.rotationFinished = true;
+          }, 800);
+        } else {
+          console.log(this.rotationFinished);
+          setTimeout(() => {
+            this.rotationFinished = true;
+            console.log(this.rotationFinished);
+          }, 800);
         }
       }
     },
