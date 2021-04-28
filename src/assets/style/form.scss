@@ -1,0 +1,78 @@
+.text-input {
+  position: relative;
+  width: 100%;
+  padding: 20px 10px;
+  margin: 20px;
+  background: white;
+  font-size: 16px;
+  border: 1px solid black;
+  outline: none;
+  transition: all 0.3s;
+
+  &:focus {
+    background: rgb(186, 255, 232);
+  }
+
+  &::placeholder {
+    color: rgb(107, 107, 107);
+    font-family: "Source Code Pro", sans-serif;
+    font-size: 16px;
+  }
+}
+
+.textarea-input {
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+  min-height: 80px;
+  padding: 10px;
+  margin: 20px;
+  background: white;
+  font-size: 16px;
+  border: none;
+  outline: 1px solid black;
+  resize: none;
+  transition: all 0.3s;
+
+  &.no-padding {
+    padding: 0;
+  }
+
+  &.height-40 {
+    min-height: 40px;
+  }
+
+  &:focus {
+    background: rgb(186, 255, 232);
+  }
+
+  &::placeholder {
+    color: rgb(107, 107, 107);
+    font-family: "Source Code Pro", sans-serif;
+    font-size: 16px;
+  }
+
+  &.no-border {
+    border: none;
+    outline: none;
+  }
+}
+
+.select-input {
+  position: relative;
+  width: auto;
+  padding: 20px 10px;
+  margin: 20px;
+  background: white;
+  font-size: 16px;
+  border: 1px solid black;
+  outline: none;
+  transition: all 0.3s;
+}
+
+
+@media screen and (max-width: 768px) {
+  .textarea-input {
+    margin: 10px 0;
+  }
+}

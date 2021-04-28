@@ -1,0 +1,20 @@
+// fonts
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Chicle&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=New+Tegomin&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
+
+@import "global-reset.scss";
+@import "transitions.scss";
+@import "colors.scss";
+@import "form.scss";
+@import "containers.scss";
+
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #181e24;
+  font-size: 20px;
+  overflow-x: hidden;
+}
