@@ -5,9 +5,9 @@
         <div class="flip-card-front" :style="{ backgroundColor: '#F67a33' }">
           <p v-text="'VISA ORD'" class="card-title" />
 
-          <div class="card-rajnd">
-            <p class="card-rajnd-text" v-text="'VAD GÖR'" :style="{ fontSize: '12px' }" />
-            <p class="card-rajnd-text" v-text="'DU?'" />
+          <div class="card-wordgame">
+            <p class="card-wordgame-text" v-text="'VAD GÖR'" :style="{ fontSize: '12px' }" />
+            <p class="card-wordgame-text" v-text="'DU?'" />
           </div>
         </div>
         <div class="flip-card-back" :style="{ backgroundColor: '#F67a33' }">
@@ -30,6 +30,7 @@ export default {
       currentIndex: null,
       currentWord: "",
       rotated: false,
+      rotationFinished: true,
     };
   },
   computed: {
@@ -52,9 +53,17 @@ export default {
       var element = document.getElementById(this.cardId);
       if (element) {
         element.classList.toggle("rotate");
+        this.rotationFinished = false;
         this.rotated = !this.rotated;
         if (!this.rotated) {
+          setTimeout(() => {
           this.randomizeWord();
+            this.rotationFinished = true;
+          }, 800);
+        } else {
+          setTimeout(() => {
+            this.rotationFinished = true;
+          }, 800);
         }
       }
     },
@@ -121,7 +130,7 @@ export default {
   .flip-card-front {
     background-color: #bbb;
 
-    .card-rajnd {
+    .card-wordgame {
       position: absolute;
       display: flex;
       justify-content: flex-end;
@@ -137,7 +146,7 @@ export default {
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
 
-      .card-rajnd-text {
+      .card-wordgame-text {
         transform: rotate(-15deg);
         color: black;
         font-size: 40px;
@@ -159,8 +168,8 @@ export default {
       height: 360px;
     }
     .flip-card-front {
-      .card-rajnd {
-        .card-rajnd-text {
+      .card-wordgame {
+        .card-wordgame-text {
           font-size: 16px;
         }
       }
@@ -174,8 +183,8 @@ export default {
       height: 220px;
     }
     .flip-card-front {
-      .card-rajnd {
-        .card-rajnd-text {
+      .card-wordgame {
+        .card-wordgame-text {
           font-size: 16px;
         }
       }
