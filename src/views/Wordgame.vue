@@ -26,7 +26,6 @@ export default {
   data() {
     return {
       cardId: "wordgame-card",
-      viewedIndexes: [],
       currentIndex: null,
       currentWord: "",
       rotated: false,
@@ -39,13 +38,18 @@ export default {
       words: (state) => state.wordgameModule.words,
     }),
   },
+  watch: {
+    words: {
+      deep: true,
+      handler() {
+        if (this.words.length > 1) {
+          this.randomizeWord();
+        }
+      },
+    },
+  },
   created() {
     this.fetchWords();
-    this.currentIndex = Math.floor(Math.random() * this.words.length);
-    if (this.currentIndex && this.words.length > 0) {
-      this.currentWord = this.words[this.currentIndex];
-      this.viewedIndexes.push(this.currentIndex);
-    }
   },
   methods: {
     ...mapActions(["fetchWords"]),
@@ -57,7 +61,7 @@ export default {
         this.rotated = !this.rotated;
         if (!this.rotated) {
           setTimeout(() => {
-          this.randomizeWord();
+            this.randomizeWord();
             this.rotationFinished = true;
           }, 800);
         } else {
@@ -68,10 +72,8 @@ export default {
       }
     },
     randomizeWord() {
-      if (this.currentIndex !== null) {
-        do {
-          var newIndex = Math.floor(Math.random() * this.words.length);
-        } while (newIndex === this.currentIndex);
+      if (this.words && this.words.length > 0) {
+        var newIndex = Math.floor(Math.random() * this.words.length);
         this.currentIndex = newIndex;
         this.currentWord = this.words[this.currentIndex];
         this.showAnswer = false;

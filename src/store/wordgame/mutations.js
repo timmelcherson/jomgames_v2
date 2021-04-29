@@ -3,6 +3,7 @@ const mutations = {
     state.isLoading = value;
   },
   SET_WORDS: (state, data) => {
+    state.words = null;
     state.words = data;
   },
 };
